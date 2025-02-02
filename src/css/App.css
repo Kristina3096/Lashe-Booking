@@ -1,32 +1,33 @@
-/* Për stilin e përgjithshëm */
 body {
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
   background-color: #f7f7f7;
+  overflow-x: hidden; /* Parandalon lëvizjen horizontale */
+  overflow-y: auto;
+  font-size: 13px;
+  box-sizing: border-box; /* Siguron që marginat dhe padding nuk ndikojnë në përmasat e përgjithshme */
 }
 
 .App {
   text-align: center;
 }
 
-/* Stilizimi i Navbar për ta shtrirë nga cepi në cep */
 .Navbar {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 10px 20px;
+  padding: 10px 15px;
   background-color: #FFC9FD;
-  width: 100%; /* Shtrije navbar-in në gjithë gjërësinë e ekranit */
+  width: 100%;
   box-sizing: border-box;
-  position: fixed; /* Poziciono navbar-in në krye të faqes, gjithmonë i dukshëm */
+  position: fixed;
   top: 0;
   left: 0;
-  z-index: 1000; /* Siguro që navbar-i të jetë sipër përmbajtjes së tjera */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);;
+  z-index: 1000;
+  box-shadow: 0 4px 8px rgba(247, 143, 200, 0.7);
   backdrop-filter: blur(10px);
 }
-
 
 .Navbar-content {
   display: flex;
@@ -39,105 +40,85 @@ body {
   max-width: 120px;
   height: auto;
   margin-left: 20px;
-
-  
 }
 
 .Navbar-text {
-  color: white;
-  font-size: 1.2rem;
-
- 
+  color: black;
+  font-size: 1rem;
+  text-align: center;
 }
 
-.background-carousel {
-  position: fixed;
+.App-content {
+  margin-top: 120px;
+  padding: 15px;
+  background-color: rgba(255, 255, 255, 0.4);
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(151, 150, 150, 0.5);
+  max-width: 95%;
+  width: 90%;
+  height: auto;
+  text-align: center;
+  margin: 0 auto;
+  box-sizing: border-box;
+  overflow: hidden; /* Parandalon që përmbajtja të dalë jashtë */
+}
+
+.App-background {
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100vh;
-  overflow: hidden;
-  z-index: -1; /* Siguro që sfondi të jetë poshtë përmbajtjes */
+  background-image: url('/public/images/Image.jpeg');
+  background-size: cover;
+  background-position: center center;
+  z-index: -1;
 }
 
-.background-images {
-  display: flex;
-  width: 300%; /* Për të mbajtur të gjitha imazhet në një linjë */
-  height: 100%;
-  transition: slide 15s infinite; /* Efekti i kalimit të butë */
-}
-
-.background-images img {
-  width: 33.3333%; /* Një pjesë e imazheve për secilin imazh */
-  height: 100%;
-  object-fit: cover; /* Mbush imazhet pa deformuar */
-}
-/* Animacioni i karuselit */
-@keyframes slide {
-  0% {
-    transform: translateX(0);
-  }
-  33.33% {
-    transform: translateX(-100%);
-  }
-  66.66% {
-    transform: translateX(-200%);
-  }
-  100% {
-    transform: translateX(0);
-  }
-}
-/* Përmbajtja e faqes duhet të jetë nën navbar */
-.App-content {
-  position: relative;
-  margin-top: 200px; /* Jepni hapësirë të mjaftueshme për të akomoduar navbar-in */
-  padding: 20px;
-  background-color: rgba(255, 255, 255, 0.6);
-  border-radius: 10px;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-  max-width: 90%;
-  width: 100%;
-  text-align: center;
-  margin: 0 auto;
-  box-sizing: border-box;
-  
-}
-
-
-/* Stilet për formularin e rezervimeve */
 form {
-  display: flex;
-  flex-direction: column;
+  max-width: 400px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 15px;
+  overflow: hidden;
+  gap: 10px;
+  box-sizing: border-box;
 }
 
 label {
+  display: block;
   margin-bottom: 5px;
   font-weight: bold;
   text-align: left;
 }
 
-input, select {
-  margin-bottom: 15px;
-  padding: 10px;
+input,
+select {
+  margin-bottom: 10px;
+  padding: 8px;
   border-radius: 5px;
   border: 1px solid #ccc;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
+  font-size: 0.9rem;
 }
 
 button {
-  padding: 10px;
-  background-color:#FFC9FD;
+  padding: 8px 12px;
+  background-color: #FFC9FD;
   color: rgb(7, 7, 7);
   border: none;
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s;
+  font-size: 0.9rem;
 }
 
 button:hover {
   background-color: #d67bb3;
 }
 
-/* Stilet për komponentin e konfirmimit */
 .Confirmation {
   text-align: left;
 }
@@ -146,18 +127,16 @@ button:hover {
   color: #e690e9;
 }
 
-/* Stilet për oraret */
 .Schedule {
   text-align: left;
   margin-bottom: 20px;
 }
 
 .Schedule p {
-  padding: 10px;
-  background-color: #f1f1f1;
+  padding: 8px;
+  background-color: #fdfdfd;
   border-radius: 5px;
   margin-bottom: 5px;
-  
 }
 
 .modal {
@@ -168,8 +147,8 @@ button:hover {
   width: 100%;
   height: 100%;
   overflow: auto;
-  background-color: rgb(0,0,0);
-  background-color: rgba(0,0,0,0.4);
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -185,14 +164,13 @@ button:hover {
   border-radius: 5px;
 }
 
-
-/* Media queries për ekranet më të vogla */
 @media (max-width: 768px) {
   .Navbar {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    height: auto; /* Lejo që navbar-i të ketë lartësi të ndryshme në ekranet më të vogla */
+    height: auto;
+    padding: 8px 12px;
   }
 
   .Navbar-logo {
@@ -202,18 +180,43 @@ button:hover {
 
   .Navbar-text {
     margin: 0;
+    font-size: 0.9rem;
   }
 
   .App-content {
-    margin-top: 200px; /* Shto hapësirë më të madhe për navbar-in në ekranet më të vogla */
-    max-width: 90%; /* Rregullo për ekranet më të vogla */
-    padding: 15px;
+    max-width: 90%;
+    padding: 10px;
+    margin-top: 100px;
+  }
+
+  button {
+    padding: 10px 15px;
   }
 }
 
 @media (min-width: 1200px) {
   .App-content {
-    max-width: 50%; /* Rregullo për ekranet më të mëdha */
-    margin-top: 170px;
+    max-width: 60%;
+    margin-top: 150px;
+    height: auto;
+  }
+
+  input,
+  select,
+  button {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .App-content {
+    padding: 10px;
+    max-width: 100%;
+  }
+
+  input,
+  select,
+  button {
+    font-size: 0.7rem;
   }
 }
