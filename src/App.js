@@ -5,7 +5,6 @@ import Confirmation from './components/Confirmation';
 import Schedule from './components/Schedule';
 import './css/App.css';
 
-// Krijimi i QueryClient
 const queryClient = new QueryClient();
 
 function App() {
